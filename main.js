@@ -6,20 +6,14 @@ var world =
  [2,1,1,2,2,2,2,1,2],
  [2,1,1,0,1,1,0,1,2],
  [2,1,0,1,1,0,1,1,2],
- [2,1,1,1,1,2,1,1,2],
- [2,1,1,1,1,2,1,1,2],
- [2,2,2,2,2,2,1,2,2],
- [2,1,1,1,1,1,1,1,2],
- [2,1,0,1,1,0,1,1,2],
- [2,1,1,1,1,2,1,1,2],
- [2,1,1,1,1,2,1,1,2],
- [2,1,1,1,1,2,1,1,2],
+ [2,1,1,0,1,1,0,1,2],
  [2,2,2,2,2,2,2,2,2]
 ];
 var pacman = {
-  x: 1.3,
-  y: 1.3
+  x: 1,
+  y: 1
 }
+var score = 0
 function displayWorld() {
   var display = "";
   for(var i = 0; i < world.length; i++){
@@ -61,5 +55,13 @@ displayPacman();
     else if(dir === 38){
       pacman.y --;
     }
-      displayPacman();  
+      if(world[pacman.y][pacman.x] === 1){
+        world[pacman.y][pacman.x] = 0;
+        score += 10;
+        document.getElementById('score').innerHTML = score;
+        displayWorld();
+
+
+      }
+    displayPacman();
   }
