@@ -1,24 +1,25 @@
 var world =
 [[2,2,2,2,2,2,2,2,2],
- [2,1,1,1,1,1,1,1,2],
- [2,2,1,0,1,2,1,1,2],
+ [2,0,1,1,1,1,1,1,2],
+ [2,1,1,0,1,2,1,1,2],
  [2,1,1,2,1,1,1,1,2],
- [2,1,1,1,1,1,1,1,2],
+ [2,1,1,2,2,2,2,1,2],
  [2,1,1,0,1,1,0,1,2],
  [2,1,0,1,1,0,1,1,2],
  [2,1,1,1,1,2,1,1,2],
  [2,1,1,1,1,2,1,1,2],
- [2,1,1,2,2,2,1,2,2],
+ [2,2,2,2,2,2,1,2,2],
  [2,1,1,1,1,1,1,1,2],
- [2,1,1,0,1,1,1,1,2],
- [2,1,1,1,2,1,1,1,2],
- [2,1,1,1,1,1,1,1,2],
- [2,1,1,0,2,1,0,1,2],
  [2,1,0,1,1,0,1,1,2],
- [2,1,2,1,1,1,1,1,2],
+ [2,1,1,1,1,2,1,1,2],
+ [2,1,1,1,1,2,1,1,2],
+ [2,1,1,1,1,2,1,1,2],
  [2,2,2,2,2,2,2,2,2]
 ];
-console.log(world);
+var pacman = {
+  x: 1.3,
+  y: 1.3
+}
 function displayWorld() {
   var display = "";
   for(var i = 0; i < world.length; i++){
@@ -39,9 +40,26 @@ function displayWorld() {
   }
   document.getElementById('world').innerHTML = display;
 }
-displayWorld();
 
 function displayPacman() {
-  document.getElementById('pacman').style.left = pacman;
-
+  document.getElementById('pacman').style.left = pacman.x*30 + "px";
+  document.getElementById('pacman').style.top = pacman.y*30 + "px";
 }
+displayWorld();
+displayPacman();
+  document.onkeydown = function(e) {
+    var dir = e.keyCode;
+    if(dir === 37){
+      pacman.x --;
+    }
+    else if(dir === 39){
+      pacman.x ++;
+    }
+    else if(dir === 40){
+      pacman.y ++;
+    }
+    else if(dir === 38){
+      pacman.y --;
+    }
+      displayPacman();  
+  }

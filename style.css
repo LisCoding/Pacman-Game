@@ -1,3 +1,8 @@
+.row {
+  margin: 0px;
+  display: inline-block;
+
+}
 
 .wrapper {
   width: 1500px;
@@ -5,14 +10,12 @@
   background-color: black;
 }
  .row div {
-  width: 20px;
-  height: 20px;
-
-  display: inline-block;
+  width: 30px;
+  height: 30px;
 }
 .row .coin{
-  height: 20px;
-  width: 20px;
+  height: 30px;
+  width: 30px;
 }
 .brick {
   background-color: blue;
@@ -24,10 +27,14 @@
   background-size: cover;
 }
 
-.pacman {
+#pacman {
   background: url("images/pacman.gif");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   border-radius: 25px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+ 
 }
