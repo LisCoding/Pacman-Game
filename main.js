@@ -43,16 +43,21 @@ displayWorld();
 displayPacman();
   document.onkeydown = function(e) {
     var dir = e.keyCode;
-    if(dir === 37){
+    var y = pacman.y;
+    var x = pacman.x;
+    if((dir === 37) && (world[y][x-1] !== 2)){
+      console.log(world[y][x-1]);
       pacman.x --;
     }
-    else if(dir === 39){
+    else if((dir === 39) && (world[y][x+1] !== 2)){
+      console.log(world[y][x]);
       pacman.x ++;
     }
-    else if(dir === 40){
+    else if((dir === 40) && (world[y + 1][x] !== 2)){
+      console.log(world[y][x+1]);
       pacman.y ++;
     }
-    else if(dir === 38){
+    else if((dir === 38) && (world[y - 1][x] !== 2)){
       pacman.y --;
     }
       if(world[pacman.y][pacman.x] === 1){
@@ -60,8 +65,7 @@ displayPacman();
         score += 10;
         document.getElementById('score').innerHTML = score;
         displayWorld();
-
-
       }
+
     displayPacman();
   }
