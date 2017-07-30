@@ -9,6 +9,12 @@ body{
   display: inline-block
 }
 
+.cherry {
+  background: url("images/cherry.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 .row {
   height: 30px;
 }
@@ -27,7 +33,7 @@ div.empty {
 }
 
 #pacman {
-  background: url("images/pacman.gif");
+  background: url("images/pacman1.gif");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

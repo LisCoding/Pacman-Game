@@ -107,3 +107,126 @@
   </body>
 
 </html>
+
+
+
+var world =
+[[2,2,2,2,2,2,2,2,2],
+ [2,0,1,1,1,1,1,1,2],
+ [2,1,1,0,1,2,1,1,2],
+ [2,1,1,2,1,1,1,1,2],
+ [2,1,1,2,2,2,2,1,2],
+ [2,1,1,0,1,1,0,1,2],
+ [2,1,0,1,1,0,1,1,2],
+ [2,1,1,1,1,2,1,1,2],
+ [2,1,1,1,1,2,1,1,2],
+ [2,2,2,2,2,2,1,2,2],
+ [2,1,1,1,1,1,1,1,2],
+ [2,1,0,1,1,0,1,1,2],
+ [2,1,1,1,1,2,1,1,2],
+ [2,1,1,1,1,2,1,1,2],
+ [2,1,1,1,1,2,1,1,2],
+ [2,2,2,2,2,2,2,2,2]
+];
+var pacman = {
+  x: 0,
+  y: 0
+}
+function displayWorld() {
+  var display = "";
+  for(var i = 0; i < world.length; i++){
+    display += "<div class='row'>";
+    for(var j = 0; j < world[i].length; j++){
+      var value = world[i][j];
+      if(value === 0){
+        display += "<div class='empty'></div>"
+      }
+      else if( value === 2){
+        display += "<div class='brick'></div>"
+      }
+      else if( value === 1){
+        display += "<div class='coin'></div>"
+      }
+    }
+    display +="</div>"
+  }
+  document.getElementById('world').innerHTML = display;
+}
+
+function displayPacman() {
+  document.getElementById('pacman').style.left = pacman.x*30 + "px";
+  document.getElementById('pacman').style.top = pacman.y*30 + "px";
+}
+displayWorld();
+displayPacman();
+  document.onkeydown = function(e) {
+    var dir = e.keyCode;
+    if(dir === 37){
+      pacman.x --;
+    }
+    else if(dir === 39){
+      pacman.x ++;
+    }
+    else if(dir === 40){
+      pacman.y ++;
+    }
+    else if(dir === 38){
+      pacman.y --;
+    }
+      console.log(world[pacman.y][pacman.x])
+
+      if(world[pacman.y][pacman.x] === 1){
+        console.log("heheh")
+        world[pacman.y][pacman.x] = 0;
+        console.log(world[pacman.y][pacman.x]);
+        console.log("-------");
+        displayWorld();
+
+      }
+    displayPacman();
+
+  }
+
+
+
+
+  <!--Csss   -->
+  .row {
+    margin: 0px;
+    display: inline-block;
+
+  }
+
+  .wrapper {
+    width: 1500px;
+    height: 1500px;
+    background-color: black;
+  }
+   .row div {
+    width: 30px;
+    height: 30px;
+  }
+  .row .coin{
+    height: 30px;
+    width: 30px;
+  }
+  .brick {
+    background-color: blue;
+  }
+  .coin {
+    background: url("images/coin.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  #pacman {
+    background: url("images/pacman.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 25px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+  }
