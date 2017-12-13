@@ -28,10 +28,6 @@ div.coin {
   background-position: center;
   background-size: cover;
 }
-div.empty {
-
-}
-
 
 #ghost1, #ghost2, #ghost3{
   background: url("images/ghost.gif");
@@ -72,9 +68,4 @@ div.empty {
   left: 300px;
   padding-top: 10px;
   box-sizing: border-box;
-}
-#winImg {
-  padding-left: 450px;
-  padding-top: 100px;
-  width: 600px
 }
